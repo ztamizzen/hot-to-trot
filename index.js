@@ -7,10 +7,6 @@ const dbName = 'horseraces';
 const col = 'races';
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
-// const empty = data => {
-//     return Object.keys(data).length === 0;
-// };
-
 function insertDocuments(collection, data, callback) {
     assert.notEqual(null, collection);
     assert.notEqual(null, data);
