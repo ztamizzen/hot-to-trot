@@ -6,6 +6,12 @@ Race subscription simulator
 
 `npm install`
 
+## mongo
+
+Install mongodb, create database `horseraces`, then create collection `races`.
+
 ## Run
 
 `npm start`
+
+Watch it run.

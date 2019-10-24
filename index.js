@@ -16,12 +16,14 @@ function insertDocuments(collection, data, callback) {
             console.error(error);
         }
         if (docs.length > 0) {
+            console.log('Already added');
             callback(docs);
         } else {
             collection.insertOne(data, function (err, result) {
                 if (err) {
                     console.error('Insert error:', err);
                 }
+                console.log('Newly added');
                 callback(result);
             });
         }
@@ -45,7 +47,7 @@ async function run(collection) {
     assert.notEqual(null, collection);
     return runService().then(data => {
         if (data.race) {
-            insertDocuments(collection, data.race, result => {
+            insertDocuments(collection, data.race, (/*result: don't care what gets sent back*/) => {
                 race(collection);
             });
         } else {

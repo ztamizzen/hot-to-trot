@@ -4,8 +4,8 @@ const { parentPort } = require('worker_threads');
 fetch('http://35.207.169.147/results', {
     credentials: 'same-origin'
 }).then(response => {
+    console.log(response);
     if (response.status === 204) {
-        console.log('204? Close!', response.status === 204);
         parentPort.close();
         return {};
     } else {
