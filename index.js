@@ -7,7 +7,7 @@ const dbName = 'horseraces';
 const col = 'races';
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
-function insertDocuments(collection, data, callback) {
+function save(collection, data, callback) {
     assert.notEqual(null, collection);
     assert.notEqual(null, data);
     assert.notEqual(null, callback);
@@ -47,7 +47,7 @@ async function run(collection) {
     assert.notEqual(null, collection);
     return runService().then(data => {
         if (data.race) {
-            insertDocuments(collection, data.race, (/*result: don't care what gets sent back*/) => {
+            save(collection, data.race, (/*result: don't care what gets sent back*/) => {
                 race(collection);
             });
         } else {

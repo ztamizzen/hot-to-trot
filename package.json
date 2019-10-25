@@ -9,7 +9,9 @@
   "author": "Mats Lindblad <mats.lindblad@gmail.com> (http://mats-lindblad.se/)",
   "license": "ISC",
   "dependencies": {
-    "mongodb": "^3.3.3",
-    "node-fetch": "^2.6.0"
+    "mongodb": "3.3.3",
+    "mongodb-memory-server": "6.0.1",
+    "mongoose": "5.7.7",
+    "node-fetch": "2.6.0"
   }
 }
