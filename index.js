@@ -1,11 +1,9 @@
+const { config } = require('./package.json');
 const { Worker } = require('worker_threads');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
-const url = 'mongodb://localhost:27017';
-const dbName = 'horseraces';
-const col = 'races';
-const client = new MongoClient(url, { useUnifiedTopology: true });
+const client = new MongoClient(config.mongourl, { useUnifiedTopology: true });
 
 function save(collection, data, callback) {
     assert.notEqual(null, collection);
@@ -65,7 +63,7 @@ function race(collection) {
 
 client.connect(err => {
     assert.equal(null, err);
-    const db = client.db(dbName);
-    const collection = db.collection(col);
+    const db = client.db(config.dbname);
+    const collection = db.collection(config.dbcollection);
     race(collection);
 });
