@@ -16,14 +16,13 @@ function save(collection, data, callback) {
             console.error(error);
         }
         if (docs.length > 0) {
-            console.log('Already added');
             callback(docs);
         } else {
             collection.insertOne(data, function (err, result) {
                 if (err) {
                     console.error('Insert error:', err);
                 }
-                console.log('Newly added');
+                console.log('Added', data.horse.horse);
                 callback(result);
             });
         }
